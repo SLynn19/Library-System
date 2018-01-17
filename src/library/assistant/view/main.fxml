@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" styleClass="root" stylesheets="@../css/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.assistant.controller.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeMenuItem" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Preferences">
+            <items>
+              <MenuItem fx:id="dbPreferences" mnemonicParsing="false" onAction="#startPreferencesConfiWindow" text="Database Preferences" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="newBookBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadNewBookWindow" prefHeight="80.0" prefWidth="100.0" styleClass="slide-button" text="New Book">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/addbook.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="newMemberBtn" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadNewMemberWindow" prefHeight="80.0" prefWidth="100.0" styleClass="slide-button" text="New Member">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/addmember.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="booklistBtn" contentDisplay="TOP" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#loadBookListWindow" prefHeight="80.0" prefWidth="100.0" styleClass="slide-button" text="Book list">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="memberlistBtn1" contentDisplay="TOP" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" onAction="#loadMemberListWindow" prefHeight="80.0" prefWidth="100.0" styleClass="slide-button" text="Member list">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/listmembers.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <JFXTabPane BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="Book Issue">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="440.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <JFXTextField fx:id="bookIDSearchField" alignment="TOP_LEFT" focusColor="#ffff8d" labelFloat="true" onAction="#searchBookInfo" prefHeight="25.0" prefWidth="220.0" promptText="Book ID" style="-fx-text-fill: #b2b2b2;" unFocusColor="#b2b2b2" />
+                                    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="301.0" spacing="10.0">
+                                       <children>
+                                          <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                          <Text fx:id="authorText" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                          <Text fx:id="availableText" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <JFXTextField fx:id="memberIDSearchField" alignment="TOP_LEFT" focusColor="#ffff8d" labelFloat="true" onAction="#searchMemberInfo" prefHeight="25.0" prefWidth="220.0" promptText="Member ID" style="-fx-text-fill: #b2b2b2;" unFocusColor="#b2b2b2" />
+                                    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="301.0" spacing="10.0">
+                                       <children>
+                                          <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                          <Text fx:id="mobileText" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                          <Text fx:id="addressText" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="-" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXButton fx:id="issueBtn" onAction="#issueBook" prefHeight="45.0" prefWidth="100.0" styleClass="custom-button" text="Issue Book" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab styleClass="tab-header-background" text="Book Renew/Submission">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="440.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTextField fx:id="bookIdField" focusColor="#ffff8d" labelFloat="true" onAction="#bookIssuedInfo" prefWidth="200.0" promptText="Enter Book ID" style="-fx-text-fill: #b2b2b2;" unFocusColor="#b2b2b2" />
+                                 </children></HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="250.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
+                                       <children>
+                                          <Text fx:id="mNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text fx:id="mMobileText" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text fx:id="mAddressText" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <Text fx:id="bTitleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text fx:id="bAuthorText" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text fx:id="bPublisherText" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="260.0" layoutY="10.0" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
+                                       <children>
+                                          <Text fx:id="issueDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text fx:id="renewCountText" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" />
+                                          <Text layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </VBox>
+                                 </children></HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <JFXButton fx:id="renewBtn" onAction="#renewBook" prefHeight="45.0" prefWidth="125.0" styleClass="custom-button" text="Renew" />
+                                    <JFXButton fx:id="submissionBtn" layoutX="10.0" layoutY="10.0" onAction="#startSubmissionBook" prefHeight="45.0" prefWidth="125.0" styleClass="custom-button" text="Submission" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </center>
+</BorderPane>
